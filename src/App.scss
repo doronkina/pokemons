@@ -1,0 +1,466 @@
+// colors
+$bgColor: #fff;
+$mainColor: #ef5350;
+
+// closeBtn
+%closeBtn {
+    width: 20px;
+    height: 20px;
+
+    position: relative;
+
+    &:before {
+        content: '';
+        width: 2px;
+        height: 20px;
+
+        position: absolute;
+        top: calc(50% - 10px);
+        right: calc(50% - 1px);
+
+        background-color: $mainColor;
+        transform: rotate(-45deg);
+    }
+
+    &:after {
+        content: '';
+        width: 2px;
+        height: 20px;
+
+        position: absolute;
+        top: calc(50% - 10px);
+        right: calc(50% - 1px);
+
+        background-color: $mainColor;
+        transform: rotate(45deg);
+    }
+}
+
+// main
+html, body {
+    min-width: 360px;
+}
+
+html, body, h4,
+button, input, select {
+    font-size: 15px;
+}
+
+h4 {
+    margin: 0;
+    text-align: center;
+}
+
+p {
+    margin: 0;
+}
+
+label,
+input[type='checkbox'],
+select,
+button {
+    cursor: pointer;
+
+    &:disabled {
+        cursor: default;
+    }
+}
+
+input,
+select {
+    outline: none;
+}
+
+//Preloader
+.preloader {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    background-color: rgba($mainColor, .5);
+
+    .preloader__img {
+        width: 50%;
+        height: 50vh;
+
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+}
+
+// Header
+.main-header {
+    background-color: $mainColor;
+
+    .main-header__container {
+        width: 90%;
+        height: 10vh;
+        margin: 0 auto;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .main-header__logo {
+            width: 20%;
+            height: 50%;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+        }
+
+        & > button {
+            width: 15%;
+            height: 35%;
+        }
+
+        .limitForm {
+            width: 10%;
+            height: 35%;
+
+            select {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        .searchForm {
+            height: 35%;
+
+            input,
+            button {
+                height: 100%;
+            }
+        }
+
+        .filters {
+            display: none;
+
+            &__open {
+                width: 100%;
+                min-width: 360px;
+
+                display: block;
+
+                position: absolute;
+                top: 10vh;
+                left: 0;
+
+                background-color: $bgColor;
+                border-bottom: 1vh solid $mainColor;
+
+                form {
+                    width: 90%;
+                    height: 20vh;
+                    margin: 0 auto;
+
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-evenly;
+
+                    .filter__container {
+                        height: 70%;
+
+                        display: flex;
+                        flex-direction: column;
+                        flex-wrap: wrap;
+                        align-items: center;
+    
+                        label {
+                            width: 10%;
+                            height: 25%;
+                            
+                            display: flex;
+                            align-items: center;
+
+                            &:hover {
+                                font-weight: 500;
+                            }
+                        }
+                    }
+
+                    .filter__btns {
+                        display: flex;
+                        justify-content: center;
+
+                        button {
+                            width: 25%;
+
+                            &:not(:last-child) {
+                                margin-right: 5%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.pokemons {
+
+    .pokemons__container {
+        width: 90%;
+        height: 70vh;
+        margin: 5vh auto;
+        overflow-y: scroll;
+
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-content: baseline;
+
+        .pokemon-card {
+            width: 18%;
+            height: 35%;
+            margin-bottom: 5vh;
+
+            cursor: pointer;
+
+            .pokemon-card__header {
+                height: 20%;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                background-color: $mainColor;
+
+                h4 {
+                    margin: 0 5%;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                }
+            }
+
+            .pokemon-card__img {
+                height: 60%;
+
+                border-left: 1px solid $mainColor;
+                border-right: 1px solid $mainColor;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                }
+            }
+
+            .pokemon-card__footer {
+                height: 20%;
+                
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+
+                background-color: $mainColor;
+            }
+        }
+    }
+
+    .pagination {
+        background-color: $mainColor;
+
+        .pagination__container {
+            width: 90%;
+            max-width: 1000px;
+            height: 10vh;
+            margin: 0 auto;
+
+            display: flex;
+            align-items: center;
+
+            button {
+                min-width: 10%;
+                width: 10%;
+                height: 50%;
+            }
+
+            .pagination__pages {
+                width: 80%;
+                height: 35%;
+                overflow-x: hidden;
+
+                display: flex;
+                justify-content: center;
+
+                button {
+                    min-width: 13%;
+                    width: 13%;
+                    height: 100%;
+
+                    &:not(:last-child) {
+                        margin-right: 1%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.pokemon {
+    width: 100%;
+    min-width: 360px;
+    height: 100vh;
+    
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+    background-color: rgba($mainColor, .2);
+    
+    .pokemon__container {
+        width: 100%;
+        max-width: 500px;
+        height: 60vh;
+        max-height: 400px;
+        margin: 20vh auto;
+        box-sizing: border-box;
+
+        position: relative;
+    
+        background-color: $bgColor;
+        border: 3px solid $mainColor;
+
+        .pokemon__header {
+            height: 15%;
+            padding: 0 5%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            background-color: $mainColor;
+
+            .close {
+                @extend %closeBtn;
+            }
+        }
+
+        .pokemon__main {
+            height: 75%;
+            margin: 5%;
+
+            .pokemon-card__img {
+                width: 100%;
+                height: 35%;
+                margin-bottom: 5%;
+
+                display: flex;
+                justify-content: center;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                }
+            }
+
+            .pokemon__info{
+                height: 60%;
+                overflow-y: scroll;
+            
+                .row {
+                    display: flex;
+
+                    &:not(:last-child) {
+                        margin-bottom: 5%;
+                        border-bottom: 1px solid rgba($mainColor, .5);
+                    }
+
+                    .left {
+                        width: 30%;
+                        font-weight: 600;
+                    }
+
+                    .right {
+                        width: 70%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    .main-header {
+        .main-header__container {
+            .filters__open {
+                form {
+                    height: 30vh;
+
+                    .filter__container {
+                        label {
+                            width: 20%;
+                            height: 20%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media (max-width: 768px) {
+    .main-header {
+        .main-header__container {
+            .searchForm {
+                button {
+                    display: none;
+                }
+            }
+        }
+    }
+    .pokemons {
+
+        .pokemons__container {
+        justify-content: space-around;
+
+            .pokemon-card {
+                width: 40%;
+            }
+        }
+    }
+}
+@media (max-width: 480px) {
+    body, html, h4,
+    button, input, select {
+        font-size: 10px;
+    }
+}
+
+@keyframes preloader {
+    0%, 20% {
+        transform: rotate(0deg);
+    }
+    20%, 40% {
+        transform: rotate(90deg);
+    }
+    40%, 60% {
+        transform: rotate(180deg);
+    }
+    60%, 80% {
+        transform: rotate(270deg);
+    }
+    80%, 100% {
+        transform: rotate(380deg);
+    }
+}
+.preloader__img {
+    img {
+        animation: preloader 2s linear infinite alternate;
+    }
+}
